@@ -1,0 +1,12 @@
+{
+  "name": "hpage",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "generate": "node ./out/generator.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
+}
