@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedNotes } from '../../lib/content';
+import { TOPICS, topicLabel } from '../../site.config';
+
+const notes = await getPublishedNotes();
+const allTopics = [...new Set(notes.flatMap((note) => note.data.topics))].sort();
+---
+
+<BaseLayout title="Topics" description="Browse notes by topic.">
+  <div class="shell page-heading">
+    <p class="eyebrow">Index</p>
+    <h1>Topics</h1>
+    <p>A few paths through the notebook.</p>
+  </div>
+
+  <div class="shell topic-index">
+    {allTopics.map((slug) => {
+      const knownTopic = slug in TOPICS ? TOPICS[slug as keyof typeof TOPICS] : undefined;
+      const count = notes.filter((note) => note.data.topics.includes(slug)).length;
+
+      return (
+        <a href={`/topics/${slug}/`} class="topic-index-row">
+          <div>
+            <h2>{topicLabel(slug)}</h2>
+            <p>{knownTopic?.description ?? `Notes filed under ${topicLabel(slug)}.`}</p>
+          </div>
+          <span>{count} {count === 1 ? 'note' : 'notes'} <span aria-hidden="true">→</span></span>
+        </a>
+      );
+    })}
+  </div>
+</BaseLayout>
+

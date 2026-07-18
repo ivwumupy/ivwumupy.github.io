@@ -1,0 +1,49 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+import { SITE } from '../site.config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  article?: boolean;
+}
+
+const {
+  title,
+  description = SITE.description,
+  article = false,
+} = Astro.props;
+const documentTitle = title ? `${title} — ${SITE.title}` : SITE.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f6f4ee" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
+
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta name="twitter:card" content="summary" />
+
+    <title>{documentTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <main id="main-content">
+      <slot />
+    </main>
+  </body>
+</html>
+

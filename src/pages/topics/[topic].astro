@@ -1,0 +1,36 @@
+---
+import NoteRow from '../../components/NoteRow.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedNotes, type Note } from '../../lib/content';
+import { TOPICS, topicLabel } from '../../site.config';
+
+export async function getStaticPaths() {
+  const notes = await getPublishedNotes();
+  const topics = [...new Set(notes.flatMap((note) => note.data.topics))];
+
+  return topics.map((topic) => ({
+    params: { topic },
+    props: {
+      topic,
+      notes: notes.filter((note) => note.data.topics.includes(topic)),
+    },
+  }));
+}
+
+const { topic, notes } = Astro.props as { topic: string; notes: Note[] };
+const label = topicLabel(topic);
+const knownTopic = topic in TOPICS ? TOPICS[topic as keyof typeof TOPICS] : undefined;
+---
+
+<BaseLayout title={label} description={knownTopic?.description ?? `Notes filed under ${label}.`}>
+  <div class="shell page-heading topic-heading">
+    <a class="back-link" href="/topics/">← All topics</a>
+    <p class="eyebrow">Topic</p>
+    <h1>{label}</h1>
+    <p>{knownTopic?.description ?? `Notes filed under ${label}.`}</p>
+  </div>
+
+  <div class="shell topic-results note-list">
+    {notes.map((note) => <NoteRow note={note} />)}
+  </div>
+</BaseLayout>

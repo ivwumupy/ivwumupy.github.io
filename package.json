@@ -1,0 +1,25 @@
+{
+  "name": "gradient-notes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A minimal static Astro blog for notes on math and learning systems.",
+  "type": "module",
+  "packageManager": "pnpm@11.14.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^5.18.2",
+    "katex": "^0.17.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^5.9.3"
+  }
+}
