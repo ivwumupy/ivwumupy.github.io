@@ -1,6 +1,5 @@
 ---
 import type { Note } from '../lib/content';
-import { formatDate } from '../lib/content';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -11,22 +10,11 @@ interface Props {
 const { note } = Astro.props;
 ---
 
-<BaseLayout title={note.data.title} description={note.data.description} article>
+<BaseLayout title={note.data.title} article>
   <article class="shell note-page">
     <header class="note-header">
-      <a class="back-link" href="/">← All notes</a>
       <h1>{note.data.title}</h1>
-      <div class="note-meta">
-        <time datetime={note.data.published.toISOString()}>{formatDate(note.data.published)}</time>
-        {note.data.updated && (
-          <>
-            <span aria-hidden="true">·</span>
-            <span>Updated {formatDate(note.data.updated)}</span>
-          </>
-        )}
-      </div>
     </header>
-
     <div class="prose">
       <slot />
     </div>

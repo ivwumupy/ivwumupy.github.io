@@ -30,11 +30,7 @@ Add a Markdown file to `src/content/notes/` with this frontmatter:
 ~~~yaml
 ---
 title: "A useful title"
-description: "One sentence describing the note."
 published: 2026-07-18
-topics:
-  - math
-featured: false
 draft: false
 ---
 ~~~

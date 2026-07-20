@@ -13,6 +13,5 @@ const { note } = Astro.props;
   <time datetime={note.data.published.toISOString()}>{formatDate(note.data.published)}</time>
   <div>
     <h2><a href={`/notes/${note.id}/`}>{note.data.title}</a></h2>
-    <p>{note.data.description}</p>
   </div>
 </article>

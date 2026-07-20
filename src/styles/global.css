@@ -206,15 +206,6 @@ svg {
   text-decoration: none;
 }
 
-.note-row p {
-  max-width: 43rem;
-  margin: 0.55rem 0 0;
-  color: var(--muted);
-  font-family: var(--serif);
-  font-size: 0.98rem;
-  line-height: 1.5;
-}
-
 .page-heading {
   padding-block: clamp(4rem, 9vw, 7rem) 3rem;
   border-bottom: 1px solid var(--ink);
@@ -306,7 +297,7 @@ svg {
 }
 
 .note-header h1 {
-  max-width: 15ch;
+  /* max-width: 15ch; */
   margin-top: 1.25rem;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.08;
@@ -319,17 +310,8 @@ svg {
   line-height: 1.55;
 }
 
-.note-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 1rem;
-  color: var(--muted);
-  font-size: 0.7rem;
-}
-
 .prose {
-  padding-block: 2.2rem;
+  padding: 2.2rem 0 clamp(4rem, 8vw, 6rem);
   font-family: var(--serif);
   font-size: 1.08rem;
   line-height: 1.75;

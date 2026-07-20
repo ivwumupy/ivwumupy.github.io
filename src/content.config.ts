@@ -5,7 +5,6 @@ const notes = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/notes' }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),
     topics: z.array(z.string()).default([]),
@@ -15,4 +14,3 @@ const notes = defineCollection({
 });
 
 export const collections = { notes };
-

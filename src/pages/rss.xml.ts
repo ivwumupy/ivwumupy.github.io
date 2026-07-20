@@ -11,11 +11,8 @@ export async function GET(context: { site: URL }) {
     site: context.site,
     items: notes.map((note) => ({
       title: note.data.title,
-      description: note.data.description,
       pubDate: note.data.published,
       link: `/notes/${note.id}/`,
-      categories: note.data.topics,
     })),
   });
 }
-
