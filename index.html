@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CFSG fleet — Quasithin dependency graphs</title>
+<style>
+  :root{--border:#e2e8f0;--muted:#64748b;--ink:#0f172a;--bg:#f8fafc;--accent:#2563eb}
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 24px 60px}
+  h1{font-size:26px;margin:0 0 6px}
+  .sub{color:var(--muted);margin-bottom:24px}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
+  .stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:9px 16px}
+  .stat b{display:block;font-size:20px}
+  .stat span{color:var(--muted);font-size:12.5px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
+  .card:hover{box-shadow:0 6px 24px rgba(15,23,42,.08);transform:translateY(-2px)}
+  .card img{width:100%;height:250px;object-fit:contain;background:#fff;border-bottom:1px solid var(--border);padding:10px}
+  .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card h2{font-size:17px;margin:0}
+  .card p{color:var(--muted);font-size:13.5px;margin:0;flex:1}
+  .card a.btn{align-self:flex-start;margin-top:10px;background:var(--accent);color:#fff;text-decoration:none;padding:7px 13px;border-radius:9px;font-size:13.5px;font-weight:600}
+  .card a.btn:hover{background:#1d4ed8}
+  h3{margin:34px 0 10px;font-size:15px}
+  .files{display:flex;flex-wrap:wrap;gap:8px}
+  .files a{display:inline-block;padding:4px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);text-decoration:none;font-size:13px;font-family:ui-monospace,SFMono-Regular,monospace}
+  .files a:hover{background:#f1f5f9}
+  footer{margin-top:36px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CFSG fleet — Quasithin campaign dependency graphs</h1>
+  <div class="sub">Task-level dependency DAG from <code>.fleet/tasks.sqlite3</code> · generated 2026-10-06 21:21</div>
+  <div class="stats">
+    <div class="stat"><b>4,583</b><span>tasks</span></div>
+    <div class="stat"><b>6,636</b><span>dependency edges</span></div>
+    <div class="stat"><b>93</b><span>layers</span></div>
+    <div class="stat"><b>2,278</b><span>done</span></div>
+    <div class="stat"><b>2,191</b><span>pending</span></div>
+    <div class="stat"><b>72</b><span>running</span></div>
+    <div class="stat"><b>37</b><span>blocked</span></div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <a href="task-dag.html"><img src="task-dag.png" alt="Layered DAG preview"/></a>
+      <div class="body">
+        <h2>Layered DAG</h2>
+        <p>Full task graph: prerequisites at the top, the final goal at the bottom; node color = status, size = attempts. Click to pin a task, browse its dependencies and consumers, and jump between related work.</p>
+        <a class="btn" href="task-dag.html">Open interactive →</a>
+      </div>
+    </div>
+    <div class="card">
+      <a href="task-radial.html"><img src="task-radial.png" alt="Radial cluster preview"/></a>
+      <div class="body">
+        <h2>Radial cluster view</h2>
+        <p>16 Louvain clusters arranged as sectors; radius = dependency layer (roots outside, goal at the center); color = cluster, symbol = status. Hover, click, and search like the layered view.</p>
+        <a class="btn" href="task-radial.html">Open interactive →</a>
+      </div>
+    </div>
+  </div>
+  <h3>Static files</h3>
+  <div class="files">
+    <a href="task-dag.png">task-dag.png</a>
+    <a href="task-dag.svg">task-dag.svg</a>
+    <a href="task-radial.png">task-radial.png</a>
+    <a href="task-radial.svg">task-radial.svg</a>
+    <a href="task-backbone.png">task-backbone.png</a>
+    <a href="task-backbone.svg">task-backbone.svg</a>
+  </div>
+  <footer>Source: CFSG <code>.fleet/tasks.sqlite3</code>; rendered with matplotlib + plotly, clustering with Louvain (networkx).</footer>
+</div>
+</body>
+</html>
