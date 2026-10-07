@@ -1,77 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CFSG fleet — Quasithin dependency graphs</title>
-<style>
-  :root{--border:#e2e8f0;--muted:#64748b;--ink:#0f172a;--bg:#f8fafc;--accent:#2563eb}
-  *{box-sizing:border-box}
-  body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
-  .wrap{max-width:1080px;margin:0 auto;padding:40px 24px 60px}
-  h1{font-size:26px;margin:0 0 6px}
-  .sub{color:var(--muted);margin-bottom:24px}
-  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
-  .stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:9px 16px}
-  .stat b{display:block;font-size:20px}
-  .stat span{color:var(--muted);font-size:12.5px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s}
-  .card:hover{box-shadow:0 6px 24px rgba(15,23,42,.08);transform:translateY(-2px)}
-  .card img{width:100%;height:250px;object-fit:contain;background:#fff;border-bottom:1px solid var(--border);padding:10px}
-  .card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-  .card h2{font-size:17px;margin:0}
-  .card p{color:var(--muted);font-size:13.5px;margin:0;flex:1}
-  .card a.btn{align-self:flex-start;margin-top:10px;background:var(--accent);color:#fff;text-decoration:none;padding:7px 13px;border-radius:9px;font-size:13.5px;font-weight:600}
-  .card a.btn:hover{background:#1d4ed8}
-  h3{margin:34px 0 10px;font-size:15px}
-  .files{display:flex;flex-wrap:wrap;gap:8px}
-  .files a{display:inline-block;padding:4px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);text-decoration:none;font-size:13px;font-family:ui-monospace,SFMono-Regular,monospace}
-  .files a:hover{background:#f1f5f9}
-  footer{margin-top:36px;color:var(--muted);font-size:12.5px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3ec">
+  <meta name="description" content="An interactive atlas of the CFSG formalization: mathematical workstreams, thousands of agent sessions, and the dependencies that connect them.">
+  <title>CFSG — The Proof Atlas</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="observatory.css">
+  <script src="observatory.js" defer></script>
 </head>
 <body>
-<div class="wrap">
-  <h1>CFSG fleet — Quasithin campaign dependency graphs</h1>
-  <div class="sub">Task-level dependency DAG from <code>.fleet/tasks.sqlite3</code> · generated 2026-10-07 10:50</div>
-  <div class="stats">
-    <div class="stat"><b>5,201</b><span>tasks</span></div>
-    <div class="stat"><b>7,439</b><span>dependency edges</span></div>
-    <div class="stat"><b>93</b><span>layers</span></div>
-    <div class="stat"><b>2,856</b><span>done</span></div>
-    <div class="stat"><b>2,223</b><span>pending</span></div>
-    <div class="stat"><b>72</b><span>running</span></div>
-    <div class="stat"><b>41</b><span>blocked</span></div>
-  </div>
-  <div class="cards">
-    <div class="card">
-      <a href="task-dag.html"><img src="task-dag.png" alt="Layered DAG preview"/></a>
-      <div class="body">
-        <h2>Layered DAG</h2>
-        <p>Full task graph: prerequisites at the top, the final goal at the bottom; node color = status, size = attempts. Click to pin a task, browse its dependencies and consumers, and jump between related work.</p>
-        <a class="btn" href="task-dag.html">Open interactive →</a>
+  <a class="skip-link" href="#atlas">Skip to the proof atlas</a>
+  <header class="masthead shell">
+    <a class="brand" href="#" aria-label="CFSG Proof Atlas home"><img src="favicon.svg" alt="" width="32" height="32"><span>CFSG <span class="brand-divider">/</span> <span class="brand-sub">The Proof Atlas</span></span></a>
+    <nav aria-label="Main navigation"><a href="#atlas" class="nav-active">Atlas</a><a href="#activity">Agent activity</a><a href="#library">The library</a></nav>
+    <a class="repo-link" href="https://github.com/Qiuzhen-CFSG/CFSG" target="_blank" rel="noopener">Explore the project <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><div class="eyebrow"><span class="tiny-mark">✳</span> CLASSIFICATION OF FINITE SIMPLE GROUPS</div><h1 id="hero-title">The shape of<br>a <em>collective proof.</em></h1><p>A monumental piece of mathematics. Thousands of agent sessions.<br class="desktop-break"> One growing network of definitions, lemmas and dependencies.</p><a class="hero-link" href="#atlas">Find your way through the proof <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-note"><div class="folio">FIELD NOTES <span>001 / CFSG</span></div><div class="note-diagram" aria-hidden="true"><svg viewBox="0 0 240 118"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M22 22 83 57 150 21 216 61 150 101 83 57 23 97M150 21v80M83 57l133 4M22 22l1 75"/><circle cx="83" cy="57" r="25" stroke-dasharray="2 4"/></g><g fill="currentColor"><circle cx="22" cy="22" r="3"/><circle cx="23" cy="97" r="3"/><circle cx="83" cy="57" r="4"/><circle cx="150" cy="21" r="3"/><circle cx="150" cy="101" r="3"/><circle cx="216" cy="61" r="4"/></g></svg><span>local results → shared structure → classification</span></div><p>How does a proof grow?<br>A hard step branches into prerequisites. Independent agents explore them. Integrated results let the next layer move forward.</p><div class="snapshot"><span class="snapshot-dot"></span> DATA SNAPSHOT <time id="snapshot-time">Loading…</time></div></div>
+    </section>
+    <section class="metrics" aria-label="Project snapshot"><div><span class="metric-label">MATHEMATICAL TASKS</span><strong id="metric-tasks">—</strong><span class="metric-detail" id="metric-dependencies">Reading the fleet snapshot</span></div><div><span class="metric-label">INTEGRATED TASKS</span><strong id="metric-done">—</strong><span class="metric-detail">Completed in the task registry</span></div><div><span class="metric-label">AGENT SESSIONS</span><strong id="metric-sessions">—</strong><span class="metric-detail">Cumulative proof attempts</span></div><div><span class="metric-label">ACTIVE AGENTS</span><strong id="metric-active">—</strong><span class="metric-detail" id="metric-peak">At the snapshot</span></div><div><span class="metric-label">LEAN SOURCE MODULES</span><strong id="metric-modules">—</strong><span class="metric-detail">Across the mathematical libraries</span></div></section>
+
+    <section id="atlas" class="atlas-section" aria-labelledby="atlas-title">
+      <div class="section-heading"><div><span class="section-number">01 / THE LANDSCAPE</span><h2 id="atlas-title">A theorem is a network.</h2></div><p>Every dot is a task. Every connection is a prerequisite.<br>Start with a workstream, or trace the final theorem backward.</p></div>
+      <div class="atlas-toolbar"><div class="segmented" aria-label="Map layout"><button data-layout="atlas" class="selected" aria-pressed="true">Workstream atlas</button><button data-layout="layers" aria-pressed="false">Dependency layers</button></div><div class="search-wrap"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 5 5" stroke="currentColor" stroke-width="1.5"/></svg><input id="task-search" type="search" placeholder="Find a theorem, group or task…" aria-label="Search tasks" autocomplete="off"><span class="search-shortcut">/</span><div id="search-results" class="search-results" hidden></div></div><button id="goal-button" class="text-button">Trace the final goal <span aria-hidden="true">↗</span></button></div>
+      <div class="atlas-grid">
+        <div class="map-column"><div class="map-stage" id="map-stage"><canvas id="proof-map" tabindex="0" aria-label="Interactive task map. Drag to pan, scroll to zoom. Use search or workstream buttons for accessible task navigation."></canvas><div class="map-topline"><span id="map-caption">QUASITHIN / WORKSTREAM ATLAS</span><span id="map-count">PREPARING THE LANDSCAPE</span></div><div id="map-tooltip" class="map-tooltip" hidden></div><div class="map-controls" aria-label="Map controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit-map" aria-label="Fit the whole map">⤢</button><button id="export-map" aria-label="Download the current map as PNG">↓</button></div><div class="map-help">SCROLL TO ZOOM <span>·</span> DRAG TO EXPLORE <span>·</span> CLICK A DOT</div><div id="map-loading" class="map-loading">Drawing the proof landscape…</div></div>
+        <div class="replay"><button id="play-replay" aria-label="Play the session history">▶</button><div class="replay-track"><div class="replay-label"><span id="replay-title">SESSION HISTORY</span><time id="replay-date">—</time></div><input id="time-slider" type="range" min="0" max="1000" value="1000" aria-label="Replay agent sessions through time"></div><button id="now-button">Latest <span>↦</span></button></div>
+        <div class="map-legend" aria-label="Task status filters"><button data-status="all" class="selected" aria-pressed="true">All tasks</button><button data-status="done" aria-pressed="false"><i class="status-dot done"></i>Integrated</button><button data-status="running" aria-pressed="false"><i class="status-dot running"></i>Active</button><button data-status="pending" aria-pressed="false"><i class="status-dot pending"></i>Pending</button><button data-status="blocked" aria-pressed="false"><i class="status-dot blocked"></i>Blocked</button><button data-status="other" aria-pressed="false"><i class="status-dot other"></i>Other</button></div></div>
+        <aside class="inspector" id="inspector" aria-label="Selected task details"><span class="panel-kicker">YOUR STARTING POINT</span><div id="inspector-content"><h3>Following the mathematics.</h3><p>Select a task to see its prerequisites, consumers and place in the campaign.</p></div></aside>
       </div>
-    </div>
-    <div class="card">
-      <a href="task-radial.html"><img src="task-radial.png" alt="Radial cluster preview"/></a>
-      <div class="body">
-        <h2>Radial cluster view</h2>
-        <p>16 Louvain clusters arranged as sectors; radius = dependency layer (roots outside, goal at the center); color = cluster, symbol = status. Hover, click, and search like the layered view.</p>
-        <a class="btn" href="task-radial.html">Open interactive →</a>
-      </div>
-    </div>
-  </div>
-  <h3>Static files</h3>
-  <div class="files">
-    <a href="task-dag.png">task-dag.png</a>
-    <a href="task-dag.svg">task-dag.svg</a>
-    <a href="task-radial.png">task-radial.png</a>
-    <a href="task-radial.svg">task-radial.svg</a>
-    <a href="task-backbone.png">task-backbone.png</a>
-    <a href="task-backbone.svg">task-backbone.svg</a>
-  </div>
-  <footer>Source: CFSG <code>.fleet/tasks.sqlite3</code>; rendered with matplotlib + plotly, clustering with Louvain (networkx).</footer>
-</div>
+      <div class="atlas-footnote"><span><span class="live-mark">↳</span> Fleet coverage: the Aschbacher–Smith quasithin campaign. The library below covers the wider formalization.</span><button id="method-button" class="text-button">How to read this map <span>+</span></button></div>
+      <div class="method-note" id="method-note" hidden><p>Workstreams are a display taxonomy derived from task IDs and source chapters; they are not a claim about module boundaries. Curves between workstreams summarize actual cross-stream dependencies. Zoom in or select a task to see individual edges. Dependency layers use the longest prerequisite path; arrows point from prerequisites to their consumers.</p><p>Replay shows task creation, active attempt intervals and the acceptance time of each task’s currently accepted result, on <strong>today’s dependency graph</strong>. Historical topology is not reconstructed. “Integrated” is the fleet’s task state, not a certificate that a fraction of CFSG is proved. Source counts are a working-tree inventory, not a Lean build or axiom audit. The site refreshes when a new snapshot is published.</p></div>
+      <div class="workstream-heading"><h3>Choose a mathematical workstream</h3><button id="clear-focus" class="text-button">Show the whole landscape ↗</button></div><div id="workstreams" class="workstreams"></div>
+    </section>
+
+    <section id="activity" class="activity-section" aria-labelledby="activity-title"><div class="section-heading"><div><span class="section-number">02 / THE COLLECTIVE EFFORT</span><h2 id="activity-title">Parallel work. Shared progress.</h2></div><p>Thousands of sessions over time, rather than thousands at once.<br>See the rhythm of exploration, integration and new prerequisites.</p></div><div class="activity-grid"><div class="activity-chart-panel"><div class="chart-heading"><div><h3>The campaign, in motion</h3><p>Concurrent agent sessions · move across the chart to inspect a moment</p></div><div class="chart-key"><i></i> Agent sessions</div></div><div id="activity-chart" class="activity-chart"><canvas id="activity-canvas" tabindex="0" aria-label="Agent concurrency timeline. Use the session history slider above to choose a time."></canvas><div id="activity-tooltip" class="chart-tooltip" hidden></div></div><div class="chart-bottom"><span id="activity-range">—</span><span id="activity-total">—</span></div></div><div class="activity-summary"><span class="panel-kicker">THE CURRENT FRONTIER</span><h3 id="frontier-number">—</h3><p>pending tasks with all prerequisites integrated</p><div class="frontier-row"><span><i class="status-dot running"></i>Running sessions</span><strong id="frontier-running">—</strong></div><div class="frontier-row"><span><i class="status-dot blocked"></i>Blocked tasks</span><strong id="frontier-blocked">—</strong></div><div class="frontier-row"><span><i class="status-dot pending"></i>Waiting on prerequisites</span><strong id="frontier-waiting">—</strong></div><button id="show-frontier" class="frontier-button">Explore this frontier <span>↗</span></button></div></div><div class="session-heading"><h3 id="session-list-title">Agents at work</h3><div class="segmented"><button id="sessions-active" class="selected" aria-pressed="true">Active now</button><button id="sessions-integrated" aria-pressed="false">Recently integrated</button></div></div><div id="session-list" class="session-list"></div></section>
+
+    <section id="library" class="library-section" aria-labelledby="library-title"><div class="section-heading"><div><span class="section-number">03 / THE FORMALIZATION</span><h2 id="library-title">Built on a growing library.</h2></div><p>Reusable mathematics below. Classification arguments above.<br>A source inventory of the entire project, beyond the active campaign.</p></div><div class="architecture"><div><span>01 / FOUNDATION</span><h3>Mathlib</h3><p>The underlying Lean mathematics library</p></div><span class="architecture-arrow" aria-hidden="true">→</span><div><span>02 / REUSABLE MATHEMATICS</span><h3>Theory</h3><p>Groups, representations, geometry and concrete models</p></div><span class="architecture-arrow" aria-hidden="true">→</span><div><span>03 / CLASSIFICATION</span><h3>CFSG & theorem campaigns</h3><p>Case analysis and assembly of the classification</p></div></div><div class="library-chart-head"><h3>The source landscape <span id="source-lines">—</span></h3><span>AREA = NUMBER OF LEAN MODULES</span></div><div id="source-treemap" class="source-treemap" aria-label="Source module distribution"></div><div class="module-explorer"><div class="module-explorer-head"><h3 id="module-heading">Explore the source modules</h3><input id="module-search" type="search" placeholder="Search source paths…" aria-label="Search Lean source modules"></div><div id="module-list" class="module-list"><p>Select a subject above, or search for a module.</p></div></div><p class="source-note">Module counts describe source files in the working tree, including ongoing work. They do not measure verified proof completion. The architecture expresses the project’s intended dependency direction; named theorem campaigns are also included in the inventory.</p></section>
+  </main>
+  <footer class="footer shell"><div><a class="brand" href="#"><img src="favicon.svg" alt="" width="25" height="25"><span>CFSG <span class="brand-divider">/</span> The Proof Atlas</span></a><p>A view into a collective formalization, one prerequisite at a time.</p></div><div class="footer-links"><a href="observatory-data.json" download>Download the data ↗</a><a href="task-dag.html">Original DAG ↗</a><a href="task-radial.html">Original radial view ↗</a><span id="footer-snapshot">Snapshot loading</span></div></footer>
+  <div class="toast" id="toast" role="status" hidden></div>
 </body>
 </html>
